@@ -1,0 +1,23 @@
+{
+  "name": "am-service",
+  "version": "1.0.0",
+  "description": "Alexa Marshall's service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hrnyc19-arcadia/AM-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hrnyc19-arcadia/AM-service/issues"
+  },
+  "homepage": "https://github.com/hrnyc19-arcadia/AM-service#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mongoose": "^5.4.0"
+  }
+}

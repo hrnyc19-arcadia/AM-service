@@ -1,0 +1,7 @@
+* to saveHome with the 'like' element on the top right of air bnb's photo gallery element, 
+* the route will take you to save/:number
+* to view all photos, the path will be /photos and 
+* will correspond to the view photos button on the bottom right of my module
+* the rest of the funcitonality will come from onChange, onClick client side funcitonality
+* as very little data is being changed, retrieved etc. in my module
+

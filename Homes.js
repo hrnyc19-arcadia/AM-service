@@ -15,15 +15,16 @@ var UserSchema = new Schema({
 })
 
 var ImageSchema = new Schema({
-    imageId: Number,
     image: String,
     description: String,
+    type: String,
     room: String,
 
 })
 
 var HomeSchema = new Schema({
     topImages: [imageSchema],
+    allImages: [],
     homeId: Number  
 })
 
