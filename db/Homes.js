@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 if(process.env.MONGODB_URI){
     mongoose.connect(process.env.MONGODB_URI)
   } else{
-    mongoose.connect('mongodb://localhost:27017/badmovies', { useNewUrlParser: true });
+    mongoose.connect('mongodb://localhost/homeImages', { useNewUrlParser: true });
   }
 
   var db = mongoose.connection;
@@ -15,26 +15,28 @@ var UserSchema = new Schema({
 })
 
 var ImageSchema = new Schema({
-    imageId: Number,
     image: String,
     description: String,
-    room: String,
+    type: String,
+    homeId: Number,
+    
 })
 
-var HomeSchema = new Schema({
-    topImages: [ImageSchema],
-    homeId: Number  
-})
+// var HomeSchema = new Schema({
+//     topImages: [ImageSchema],
+//     homeId: Number  
+// })
 
-const userModel = db.model('User', UserSchema)
+// dont need if boolean favorited added to 
+// const userModel = db.model('User', UserSchema)
 const imageModel = db.model('Image',ImageSchema)
-const homeModel = db.model('Home', HomeSchema)
+// const homeModel = db.model('Home', HomeSchema)
 
 
 
-const saveHome = (home, callback) => {
-    homeModel.saveOne({homeId: home.homeId}, callback)
-}
+// const saveHome = (home, callback) => {
+//     homeModel.saveOne({homeId: home.homeId}, callback)
+// }
 
 const saveImage  = (image, callback) => {
     imageModel.saveOne({imageId: image.id}, callback)
@@ -45,4 +47,4 @@ const saveFave = (home, callback) => {
 }
 
 
-module.exports = {saveHome, saveImage, saveFave, userModel, imageModel, homeModel}
+module.exports = {saveImage, saveFave, imageModel}

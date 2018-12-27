@@ -18,13 +18,11 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + '../client'))
 
 app.get('/photos', (req, res)=>{
-    var photos
+    db.find({})
 })
 
 app.post('/save/:number', (req, res)=>{
-    var homeId = req.params.number
-
-    
+    var homeId = req.params.number   
 })
 
 app.use(3001, () => {

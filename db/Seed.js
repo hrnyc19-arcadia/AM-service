@@ -10,7 +10,7 @@ var insertAllData = function(obj) {
     var homeId = 0;
     var saveIntsExts = (arr) => {
         for(var j = 0; j < arr.length; j++){
-            if(arr.length > 100 && i % 4 === 0) {
+            if(arr.length > 100 && j % 4 === 0) {
                 homeId += 1
             } else {
                 homeId += 1
@@ -19,7 +19,8 @@ var insertAllData = function(obj) {
                 image: arr[j].image_path,
                 description: descriptionLines[j],
                 type: arr[j].type,
-                homeId: homeId
+                homeId: homeId,
+                favorited: false
             })
             instance.save((err)=>{
                 if(err){
@@ -28,7 +29,7 @@ var insertAllData = function(obj) {
             })
         }
     }
-    saveIntsExts(obj.interiors)
+    // saveIntsExts(obj.interiors)
     saveIntsExts(obj.exteriors)   
 };
 

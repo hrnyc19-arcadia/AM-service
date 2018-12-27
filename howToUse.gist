@@ -4,4 +4,5 @@
 * will correspond to the view photos button on the bottom right of my module
 * the rest of the funcitonality will come from onChange, onClick client side funcitonality
 * as very little data is being changed, retrieved etc. in my module
+* 
 
