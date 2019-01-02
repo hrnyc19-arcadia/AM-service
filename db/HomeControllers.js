@@ -1,11 +1,11 @@
-var models = require('./Homes')
+var imageModel = require('./Homes')
 
 module.exports = {
-    getAllPhotos: ()=>{
-        
+    getAllPhotos: (home, callback)=>{
+        imageModel.find({homeId: home.homeId}, callback)  
     },
 
-    faveHome: ()=>{
-
+    saveFave: (home, callback) => {
+        imageModel.findOneAndUpdate({homeId: home.homeId}, {saveListName: home}, callback)
     }
 }

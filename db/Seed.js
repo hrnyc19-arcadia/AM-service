@@ -1,25 +1,28 @@
 
-const Models = require('./Homes')
-const imageList = require('./imageData')
+const imageModel = require('./Homes');
+const imageList = require('./imageData');
 // const exteriors = require('../db/z_exteriors')
 // const interiors = require('../db/z_interiors')
-// const fs = require('fs')
+
 
 var insertAllData = function(obj) {
     var descriptionLines = obj.Description.split('.')
-    var homeId = 0;
     var saveIntsExts = (arr) => {
+        var homeId = 0;
+        var type = arr.length > 100 ? 'interior' : 'exterior'
         for(var j = 0; j < arr.length; j++){
-            if(arr.length > 100 && i % 4 === 0) {
+            if(type === 'interior' && j % 4 === 0) {
                 homeId += 1
-            } else {
+            } else if (type === 'exterior') {
                 homeId += 1
             };
-            var instance = new Models.imageModel({
-                image: arr[j].image_path,
+            //check if formatting for filepath correct
+            var instance = new imageModel({
+                homeId: homeId,
+                image: 'homeImages/' + arr[j],
                 description: descriptionLines[j],
-                type: arr[j].type,
-                homeId: homeId
+                type: type,
+                saveListName: '_'
             })
             instance.save((err)=>{
                 if(err){

@@ -3,7 +3,7 @@ var app = express()
 var models = require('../db/Homes')
 var controllers = require('../db/HomeControllers')
 var bodyParser = require('body-parser')
-var db = require('')
+var path = require('path')
 
 
 // Your server must be able to serve up 
@@ -15,18 +15,22 @@ var db = require('')
 
 app.use(bodyParser.json())
 
-app.use(express.static(__dirname + '../client'))
+app.use(express.static(path.join(__dirname, '/../client/dist')))
 
-app.get('/photos', (req, res)=>{
-    var photos
+app.get('/:homeId', (req, res)=>{
+    var homeId = req.params.homeId
+    controllers.getAllPhotos({homeId: homeId}, (err, result)=>{
+        if (err){
+            console.log(err)
+        } else {
+            res.send(result);
+        }
+    });
 })
 
-app.post('/save/:number', (req, res)=>{
-    var homeId = req.params.number
+// app.post('/save', (req, res)=>{  
+// })
 
-    
-})
-
-app.use(3001, () => {
+app.listen(3001, () => {
     console.log('listening on port 3001')
 })

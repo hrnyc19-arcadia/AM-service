@@ -1,0 +1,208 @@
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.image img {
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.image {
+  position: relative;
+  overflow: hidden;
+  padding: 1px;
+  height: 188.66px;
+  width: 286px;
+  max-width:286px; 
+  max-height: 188.66px;
+  display: inline-block;
+  display: flex;
+  background-color: rgb(32, 30, 30);
+}
+
+.modal {
+  /* display: none; Hidden by default */
+  position: fixed; /* Stay in place front is invalid - may break your css so removed */  
+  padding-top: 100px; /* Location of the box - don't know what this does?  If it is to move your modal down by 100px, then just change top below to 100px and remove this*/
+  left: 0;
+  right:0; /* Full width (left and right 0) */
+  top: 0;
+  bottom: 0; /* Full height top and bottom 0 */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: white; /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  z-index: 9999; /* Sit on top - higher than any other z-index in your site*/
+}
+
+.photomodal {
+  background-color: rgb(41, 39, 39) !important;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content #x{
+  position: relative;
+  top: 0;
+  right: 0;
+  border: none;
+  font-size: 40;
+  /* text-emphasis-color: grey; */
+  /* font-weight: 200; */
+  font-family: Arial, Helvetica, sans-serif
+}
+
+h2,
+h3,
+p,
+li{
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(73, 71, 71);
+}
+
+#exterior {
+  position: relative;
+  overflow: hidden;
+  height: 373.32px;
+  width: 572px;
+  max-width: 572px ;
+  max-height: 373.32px;
+  /* max-width: 100%; */
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+img{
+  max-width: 100%;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border: .2px;
+  display: flex;
+  position: relative;
+}
+
+.image:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+#exterior:nth-of-type(5) {
+  order: 1;
+}
+
+.outer {
+  display: grid;
+  display: flex;
+  flex: 1 100%;
+  grid-template-columns: 572px 572px;
+  /* grid-template-columns: max-content; */
+  padding: .2 0 0 .2;
+  background: rgb(32, 30, 30);
+  /* grid-template-rows: 373.32px 186.66px 186.66px; */
+}
+
+.inner {
+  display:grid;
+  grid-template-columns: 286px 286px;
+  /* grid-template-rows: 373.32px 186.66px 186.66px; */
+}
+
+
+
+#grid:hover > div {
+-webkit-filter: brightness(100%);
+filter: brightness(60%);
+}
+
+#grid:hover > div:hover {
+filter: brightness(100%);
+}
+
+
+.staticbtn {
+  right: 0;
+  bottom: 0;
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); */
+  background-color: rgb(238, 236, 236);
+  color: rgb(51, 49, 49);
+  font-size: 15.5px;
+  padding: 12px;
+  padding-left: 22px;
+  padding-right: 22px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  margin: 10px;
+  z-index: 100;
+  position: absolute;
+}
+
+.sharesavebtn {
+  /* top: 50%;
+  left: 50%; */
+  /* transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); */
+  background-color: rgb(238, 236, 236);
+  color: rgb(51, 49, 49);
+  font-size: 15.5px;
+  padding: 12px;
+  padding-left: 22px;
+  padding-right: 22px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  margin: 10px;
+  z-index: 100;
+  position: absolute;
+}
+
+#sharesaveviewgrid {
+  position: absolute;
+  right: 40px;
+  top: 0;
+  display: grid;
+  grid-template-columns: 50px 50px;
+  grid-template-rows: 50px;
+  column-gap: 40px;
+  row-gap: 260px;
+  grid-row-start: initial;
+  padding: 20px;
+}
+
+
+.staticbtn:hover {
+  -moz-transform: translate(0px, -20px);
+    -ms-transform: translate(0px, -20px);
+    -o-transform: translate(0px, -20px);
+    -webkit-transform: translate(0px, -20px);
+    transform: translate(0px, -20px)
+}
+
+.thumbnail{
+  color:black;
+}
+
+.gallery{
+  display: -ms-inline-grid;
+  grid-column-gap: 10px;
+}
