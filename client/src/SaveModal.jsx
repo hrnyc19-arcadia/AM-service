@@ -27,7 +27,7 @@ class SaveModal extends React.Component {
 
     render(){
         return(
-            <div id='grid'>
+            <div>
                 <button class='sharesavebtn' onClick={this.popUp} > Save </button>
                 <Modal id='modal' show={this.state.show} >
                      <Modal.Header>
