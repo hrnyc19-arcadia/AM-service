@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, '/../client/dist')))
 
-app.get('/:homeId', (req, res)=>{
+app.get('/images/:homeId', (req, res)=>{
     var homeId = req.params.homeId
     controllers.getAllPhotos({homeId: homeId}, (err, result)=>{
         if (err){

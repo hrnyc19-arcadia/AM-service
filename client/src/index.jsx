@@ -11,7 +11,7 @@ class Main extends React.Component {
     constructor(props){
         super(props)
         this.state = {
-            homeId: Number(window.location.href.split('/')[window.location.href.split('/').length - 1].slice(1)),
+            homeId: Number(window.location.href.split('/')[window.location.href.split('/').length - 1].slice(1, 4)),
             images: [],
             ext: ''
         }
@@ -25,7 +25,7 @@ class Main extends React.Component {
 
     getImagesForMainCarousel(){
         //replace with getting url id end
-        axios.get('/' + this.state.homeId)
+        axios.get('/images/' + this.state.homeId)
         .then((data)=>{
             var data = data.data
             var ints = data.filter((el)=>{
@@ -67,7 +67,7 @@ class Main extends React.Component {
                         <div id='grid' className='inner'>
                             {this.state.images.map((image)=>{
                                 return (
-                                <div class='image'>
+                                <div class='image' id='interior'>
                                 <img key={image.id} src={image.image} alt={image.type} />
                                 <div id="item-overlay top"> </div>
                              </div>)

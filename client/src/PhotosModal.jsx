@@ -1,6 +1,7 @@
 import React from 'react';
 import {Modal} from 'react-bootstrap';
 
+
 class PhotosModal extends React.Component{
     constructor(props){
         super(props)
@@ -37,19 +38,19 @@ class PhotosModal extends React.Component{
     }
 
     nextPhoto(image){
-        if(image){
-            this.setState({
-                currentPic: image,
-                currentIdx: this.props.images.indexOf(image),
-                currentList: paddedImgList.slice((this.currentIdx-3), (this.currentIdx + 4))
-            })
-        } else {
-            this.setState({
-                currentPic: this.props.images[this.currentIdx+1],
-                currentIdx: (this.currentIdx+=1),
-                currentList: paddedImgList.slice((this.currentIdx-3), (this.currentIdx + 4))
-            })
-        }
+        // if(image){
+        //     this.setState({
+        //         currentPic: image,
+        //         currentIdx: this.props.images.indexOf(image),
+        //         currentList: this.props.images.slice((this.currentIdx-3), (this.currentIdx + 4))
+        //     })
+        // } else {
+        //     this.setState({
+        //         currentPic: this.props.images[this.currentIdx+1],
+        //         currentIdx: (this.currentIdx+=1),
+        //         currentList: this.props.images.slice((this.currentIdx-3), (this.currentIdx + 4))
+        //     })
+        // }
         
 
     }
@@ -59,29 +60,21 @@ class PhotosModal extends React.Component{
         return ( 
             <div>
                 <button class='staticbtn' onClick={this.popUp} > View Photos </button>
-                <Modal id='photomodal' show={this.state.show}>
-                
-                    <Modal.Title >
+                <Modal bsSize='large' show={this.state.show} >
+                     <Modal.Body id='photo-modal-body'>
+                        <div>
+                        <button id='x' onClick={this.shut} > X </button>
+                        </div>
                          <div>
-                         <button id='x' onClick={this.shut} > X </button>
+                            <img src={this.state.currentPic} />
                          </div>
-                     </Modal.Title>
-               
-                     <Modal.Body>
-                           <div id='gallery'>
-                               { this.state.currentList.map((image)=>{
-                                       return (
-                                       <div class='thumbnail'>
-                                           <img key={image.id} src={image.image} alt={image.type} value={image} onClick={this.nextPhoto(event.target.value)} />
-                                           <div id="item-overlay top"> </div>
-                                       </div>)
+                           <section id='gallery'>
+                               { this.props.images.map((image)=>{
+                                       return ( <img id='thumbnail' key={image.id} src={image.image} alt={image.type} value={image.image} onClick={this.nextPhoto(event.target.value)} />)
                                 })
                                 }         
-                           </div>
-                   
+                           </section>
                      </Modal.Body>
-                     <Modal.Footer>
-                     </Modal.Footer>
                 </Modal>
             </div>
         )
