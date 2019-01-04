@@ -84,33 +84,31 @@ class Main extends React.Component {
         return (
             <div class={this.state.show ? 'background' : ''}>
                 {this.state.show ? (
-                <div >
+                <div>
                     
-                    <section id='carousel-grid'>
                     {/* <section id='carousel-grid'> */}
                     <div id='carousel-row'>
-                    <div id='x-out' onClick={this.shut}>X
-                    </div>
-                            <div class='inliners' onClick={() => {this.nextPhoto((-1))}}>
+                            <div class='carousel-col' id='x-out' onClick={this.shut}>X</div>
+                            <div class='carousel-col' onClick={() => {this.nextPhoto((-1))}}>
                                 <i  class="left"></i>
                             </div>
-                            <div>
-                                 <img class='inliners' id='main-carousel-img' src={this.state.currentPic.image} alt={this.state.currentPic.type} /> 
-                            </div>
-                            <div class='inliners' onClick={() => {this.nextPhoto(1)}} >
+                            {/* <div class='carousel-col'> */}
+                                 <img class='carousel-col' id='main-carousel-img' src={this.state.currentPic.image} alt={this.state.currentPic.type} /> 
+                            {/* </div> */}
+                            <div class='carousel-col' onClick={() => {this.nextPhoto(1)}} >
                                 <i class="right"></i>
                             </div>
-                        </div>
-                    {/* </section> */}
-                       
-                        <div id='carousel-row'>
-                                    {this.state.images.map((image)=>{
-                                        return (
-                                        <div class='carousel-image' id='interior'>
-                                            <img key={image.id} src={image.image} alt={image.type} />
-                                        </div>)
-                                    })}
-                        </div>  
+                    </div>
+                    {/* </section> */}  
+                    <section id='carousel-grid'>
+                    <div id='carousel-row'>
+                             {this.state.images.map((image)=>{
+                                 return (
+                                 <div class='carousel-image' id='interior'>
+                                     <img key={image.id} src={image.image} alt={image.type} />
+                                 </div>)
+                             })}
+                    </div>  
                     </section> 
                 </div>
                     ) : (
