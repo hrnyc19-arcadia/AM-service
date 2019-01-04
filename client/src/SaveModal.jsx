@@ -45,10 +45,10 @@ class SaveModal extends React.Component {
                      </Modal.Header>
                      <Modal.Body>
                        
-                     <p>Save</p>
+                     <h4 class='h4txt'>Save</h4>
                        
-                       <p>Save to Your List</p>
-                       <p>Name:</p>
+                       <p class='ptxt' >Save to Your List</p>
+                       <p class='ptxt' >Name:</p>
                     </Modal.Body>
                      <Modal.Footer>
                     </Modal.Footer>

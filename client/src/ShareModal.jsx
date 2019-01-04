@@ -3,8 +3,8 @@ import {Modal} from 'react-bootstrap';
 
 
 class ShareModal extends React.Component {
-    constructor(props, context){
-        super(props, context)
+    constructor(props){
+        super(props)
         this.state = {
            show: false
         }
@@ -39,16 +39,16 @@ class ShareModal extends React.Component {
                      </Modal.Header>
                      <Modal.Body>
 
-                       <p>Share</p>
+                       <h4 class='h4txt'>Share</h4>
                        
-                        <p>Check out this awesome listing on Airbnb: Small house in Paris Center 5p - Houses for Rent in Paris-2E-Arrondissement</p>
+                        <p class='ptxt2'>Check out this awesome listing on Airbnb: {this.props.ext.description}</p>
                         <ul>
-                            <li>Facebook</li>
-                            <li>Twitter</li>
-                            <li>Email</li>
-                            <li>Messenger</li>
-                            <li>Copy Link</li>
-                            <li>Embed</li>
+                            <li class='ptxt2'>Facebook</li>
+                            <li class='ptxt2'>Twitter</li>
+                            <li class='ptxt2'>Email</li>
+                            <li class='ptxt2'>Messenger</li>
+                            <li class='ptxt2'>Copy Link</li>
+                            <li class='ptxt2'>Embed</li>
                         </ul>
                     </Modal.Body>
                      <Modal.Footer>

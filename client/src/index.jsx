@@ -16,7 +16,7 @@ class Main extends React.Component {
             ext: '',
             show: false,
             currentPic: '',
-            currentIdx: 3
+            currentIdx: 0
         }
         this.popUp = this.popUp.bind(this)
         this.shut = this.shut.bind(this)
@@ -24,7 +24,7 @@ class Main extends React.Component {
     }
 
     componentDidMount(){
-        console.log(Number(window.location.href.split('/')[window.location.href.split('/').length - 1].slice(1)))
+        // console.log(Number(window.location.href.split('/')[window.location.href.split('/').length - 1].slice(1)))
         this.getImagesForMainCarousel();
         
     }
@@ -116,7 +116,7 @@ class Main extends React.Component {
                 <section id='sharesaveviewgrid'>
                         {/* <div id='sharesaveviewgrid'> */}
                             <SaveModal images={this.state.images}/>
-                            <ShareModal images={this.state.images}/>
+                            <ShareModal images={this.state.images} ext={this.state.ext}/>
                             <div>
                                  <button class='staticbtn' onClick={this.popUp} > View Photos </button>
                             </div>
@@ -124,7 +124,7 @@ class Main extends React.Component {
                 </section>
                 <section id='grid' className='outer'>
                     <div class='image' id='exterior'>
-                         <img src={this.state.ext.image} alt={this.state.ext.type} />
+                         <img src={this.state.ext.image} />
                         <div id="item-overlay top"> </div>
                     </div>
                     <div id='gridholder'>
@@ -132,11 +132,10 @@ class Main extends React.Component {
                             {this.state.images.map((image)=>{
                                 return (
                                 <div class='image' >
-                                <img key={image.id} src={image.image} alt={image.type} />
+                                <img src={image.image}  />
                                 <div id="item-overlay top"> </div>
-                             </div>)
-                         })}
-                     
+                                </div>)
+                            })}
                         </div>
                     </div>
                 </section>

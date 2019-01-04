@@ -1,10 +1,9 @@
-
+var dbconfig = require('../config.js')
 const mongoose = require('mongoose')
-if(process.env.MONGODB_URI){
-    mongoose.connect(process.env.MONGODB_URI)
-  } else{
-    mongoose.connect('mongodb://localhost:27017/homeImages', { useNewUrlParser: true });
-  }
+
+   // mongoose.connect('mongodb://localhost:27017/homeImages', { useNewUrlParser: true });
+    mongoose.connect(`mongodb://${dbconfig.username}:${dbconfig.password}@ds251622.mlab.com:51622/flair-bnb-photo-carousel`);
+  
 
   var db = mongoose.connection;
   const Schema = mongoose.Schema
