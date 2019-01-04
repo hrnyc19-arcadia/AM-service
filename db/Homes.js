@@ -1,10 +1,9 @@
-
+var dbconfig = require('../config.js')
 const mongoose = require('mongoose')
-if(process.env.MONGODB_URI){
-    mongoose.connect(process.env.MONGODB_URI)
-  } else{
-    mongoose.connect('mongodb://localhost:27017/badmovies', { useNewUrlParser: true });
-  }
+
+   // mongoose.connect('mongodb://localhost:27017/homeImages', { useNewUrlParser: true });
+    mongoose.connect(`mongodb://${dbconfig.username}:${dbconfig.password}@ds251622.mlab.com:51622/flair-bnb-photo-carousel`);
+  
 
   var db = mongoose.connection;
   const Schema = mongoose.Schema
@@ -15,34 +14,16 @@ var UserSchema = new Schema({
 })
 
 var ImageSchema = new Schema({
-    imageId: Number,
+    homeId: Number,
     image: String,
     description: String,
-    room: String,
+    type: String,
+    saveListName: String
 })
 
-var HomeSchema = new Schema({
-    topImages: [ImageSchema],
-    homeId: Number  
-})
-
-const userModel = db.model('User', UserSchema)
+// const userModel = db.model('User', UserSchema)
 const imageModel = db.model('Image',ImageSchema)
-const homeModel = db.model('Home', HomeSchema)
 
 
 
-const saveHome = (home, callback) => {
-    homeModel.saveOne({homeId: home.homeId}, callback)
-}
-
-const saveImage  = (image, callback) => {
-    imageModel.saveOne({imageId: image.id}, callback)
-}
-
-const saveFave = (home, callback) => {
-    userModel.saveOne({homeId: homeId}, callback)
-}
-
-
-module.exports = {saveHome, saveImage, saveFave, userModel, imageModel, homeModel}
+module.exports = imageModel
