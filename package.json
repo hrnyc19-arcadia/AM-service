@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js"
+    "server-dev": "nodemon server/index.js",
+    "aws-connect": "chmod 400 flairbnbkeyAM.pem && ssh -i \"flairbnbkeyAM.pem\" ubuntu@ec2-13-59-226-211.us-east-2.compute.amazonaws.com",
+    "start": "concurrently \"node ./server/index.js\" \"webpack -d --watch\""
+
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^3.4.0",
     "chai": "^4.2.0",
+    "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.0",
     "nodemon": "^1.18.9",
